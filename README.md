@@ -8,6 +8,10 @@ This project does the following:
   - Creates machines for [onsite Chef training](https://training.chef.io/training/onsite.html)
   - Creates a Markdown file that assigns machines to students
 
+## Prerequisites
+
+This project depends on Hashicorp Terraform to create VMs in AWS. Ensure Terraform is installed by installing from [here](https://www.terraform.io/downloads.html) or via `brew install terraform` if you are a Homebrew user.
+
 ## How To Use
 
 1. Verify `~/.aws/credentials` is configured. (see [here](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html))
@@ -32,6 +36,12 @@ This project does the following:
 ## Using Multiple AWS Accounts
 
 Since this project uses Terraform you have the option to configure it to use an multiple AWS accounts. To do this you need to configure profiles in your `~/.aws/config`. A detailed guide on this process can be found [here](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-multiple-profiles).
+
+Be sure your environment profile directs AWS to read its configuration and keys from these files by updating your profile as follows (or to where the files reside): 
+```
+AWS_CONFIG_FILE=/Users/<YOUR USER ID>/.aws/config
+AWS_CREDENTIAL_FILE=/Users/<YOUR USER ID>/.aws/credentials
+```
 
 TL;DR:
   1. Add a profile block to your `~/.aws/config`. Example:
